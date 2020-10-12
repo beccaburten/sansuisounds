@@ -38,10 +38,13 @@ When it hits the final note, you can play it again to enjoy your work, or clear 
 ## Expected Technologies
 1. Javascript
 2. Canvas API
-3. [Tone.js](https://tonejs.github.io/)
+3. Sound library, currently considering:
+- [SoundJS](https://createjs.com/soundjs) -- for controlling sound, imported from elsewhere
+- [Howler.js](https://github.com/goldfire/howler.js#documentation) -- for controlling sound, imported from elsewhere
+- [Tone.js](https://tonejs.github.io/) -- sound options may be too synth-y, and not calming
+- [P5.js](https://p5js.org/examples/sound-load-and-play-sound.html)
 4. [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
-5. [P5.js](https://p5js.org/examples/sound-load-and-play-sound.html)
-6. **Technological Challenges**
+**Technological Challenges**
 - How to integrate the Canvas line drawing animation so that it pauses on encountering a garden item, triggering a new encircling-draw around the item, and restarts
 - How to trigger a chime sound event upon the encircling of the items, and alter tone of sound based on object size
 - Will the bucket of draggable items be kept in the same wider Canvas dimensions as the garden, or will there be two Canvas elements on the page(bucket, garden)? If the former, based on my grid, can the play button structure be kept inside the confines of a canvas element?
