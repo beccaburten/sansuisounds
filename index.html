@@ -6,12 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <title>SansuiSounds</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>sansuisounds</title>
 </head>
 
 <body>
-    <canvas></canvas>
+    <div class="header">
+        <div class="logo">
+            <h1 id="en">sansuisounds</h1>
+            <h1 id="ja">枯山水</h1>
+        </div>
+        <div class="r-header">
+            <h3 class="about-trigger">ABOUT</h3>
+            <div id="about-d" class="dropdown">
+                <p>Welcome to SansuiSounds, where you can create, and listen to, your very own digital zen garden. Based on the ancient Japanese gardening style of Karesansui, place stones and bonzai trees around your sandbox to create your own unique design.</p>
+                <p>Need a hand? Click on START for more instructions.</p>
+                <p>Like what you see? Check out more of my work at the links below.</p>
+                <a href="https://github.com/beccaburten/"><img class="links" id="ghb" src="./src/images/github_logo.png"
+                        alt="github-personal-link"></a>
+                <a href="https://www.linkedin.com/in/beccaburten/"><img class="links" id="lnk" src="./src/images/linkedin_logo.png"
+                        alt="linkedin-personal-link"></a>
+                <p>A project by Becca Burten.</p>
+            </div>
+            <h3 class="start-trigger">START</h3>
+            <div id="start-d" class="dropdown">
+                <p>Ready to start? Drag and drop the items into your sandbox, including as many as you like.</p>
+            
+                <p>Once satisfied with your design...it's time to rake!</p>
+                <p>Press the play button at the bottom of the screen to watch as a rake pulls across the garden, drawing fine lines in the 'sand' around your designs</p>
+
+                <p>Make sure you have your volume on-- these five-toothed rakes are actually creating musical staves, and your stones have become the notes! As the rake encounters these objects on its path, you can listen to the soothing chimes of your own design.</p>
+                
+                <p>When it hits the final note, you can play it again to enjoy your work, or clear the sand and start your new
+                sansuisound-- no two are the same!</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="garden-items">
+        <img id="stone2" class="sm" src="./src/images/garden-items/stone-2.png" alt="stone-2">
+        <img id="stone4" class="sm" src="./src/images/garden-items/stone-4.png" alt="stone-4">
+        <img id="stone3" class="sm" src="./src/images/garden-items/stone-3.png" alt="stone-3">
+        <img id="stone1" class="sm" src="./src/images/garden-items/stone-1.png" alt="stone-1">
+        <img id="sp1" class="sm" src="./src/images/garden-items/stone-pile-1.png" alt="stone-pile-1">
+        <img id="sp2" class="lrg" src="./src/images/garden-items/stone-pile-2.png" alt="stone-pile-2">
+        <img id="lant" class="sm" src="./src/images/garden-items/lantern.png" alt="lantern">
+        <img id="bz1" class="lrg" class="tree" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1">
+        <img id="bz2" class="lrg" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2">
+    </div>
+
+    <canvas id="sandbox"></canvas>
     <script src="./dist/main.js"></script>
+
+    
 </body>
 
 </html>

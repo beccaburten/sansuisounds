@@ -1,0 +1,18 @@
+.garden-items {
+    display: flex;
+    margin: 10px;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    & img {
+        object-fit: contain;
+    }
+}
+
+.sm {
+    width: 70px;
+}
+
+.lrg {
+    width: 100px;
+}

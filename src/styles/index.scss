@@ -1,0 +1,47 @@
+@import './navbar.scss';
+@import './canvas.scss';
+@import './garden-items.scss';
+
+body, p, h1, h3 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+    color: #93A64E;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 1.5px;
+}
+
+#en:hover {
+    display: none;
+    &:hover + #ja {
+        display: block;
+    }
+}
+
+.logo {
+    cursor: default;
+    padding: 10px;
+    &:hover #ja {
+        display: block;
+    }
+    &:hover #en {
+        display: none;
+    }
+}
+
+#ja {
+    display: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #495925;
+}
+
