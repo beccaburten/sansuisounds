@@ -1,5 +1,5 @@
-export function circlePointCollision(x, y, circle) {
-	return distanceXY(x, y, circle.x, circle.y) < circle.radius;
+export function circlePointCollision(x, y, item) {
+	return distanceXY(x, y, item.x, item.y) < item.radius;
 }
 
 export function distanceXY(x0, y0, x1, y1) {

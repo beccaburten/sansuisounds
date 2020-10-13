@@ -2,35 +2,84 @@ import './styles/index.scss';
 import './styles/navbar.scss';
 import './styles/canvas.scss';
 import './styles/garden-items.scss';
-import {circlePointCollision} from './scripts/utils';
+import { draw } from './scripts/draw.js'
+import { circlePointCollision } from './scripts/utils.js';
 
-// import * as DragDropUtil from './scripts/dragdrop.js';
-// import { draw } from './scripts/draw.js'
 
 let sandbox = document.getElementById("sandbox");
     let w = sandbox.width = window.innerWidth;
     let h = sandbox.height = 0.75 * window.innerHeight;
-    //attempt to resize canvas on window resize:
-    // sandbox.addEventListener("resize", ()=> {
-    //     w = sandbox.width = window.innerWidth;
-    //     h = sandbox.height = 0.75 * window.innerHeight;
-    // })
 let c = sandbox.getContext("2d");
     c.imageSmoothingEnabled = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    let tree = new Image();
-    tree.src = "./src/images/garden-items/bonzai-2.png";  
 
-    draw(tree, 200, 20);
-
-    function draw() {
-        c.clearRect(0,0, w, h)
-        tree.onload = function(){
-            c.drawImage(tree, 200, 20);
+    let gardenItems = [];
+    let offset = {};
+    function drawGardenItem(e) {
+        return (e) => {
+            let img = new Image();
+            img.src = `${e.target.src}`; 
+            draw(img, w/3, h/3);
+            debugger;
+            gardenItems.push({
+            img: img,
+			x: w/3,
+			y: h/3,
+			radius: parseInt(e.target.style.width)
+		});
         }
-    } 
+    }
+
+    document.getElementById("stone-2").addEventListener("click", drawGardenItem("stone-2"));
+    document.getElementById("stone-4").addEventListener("click", drawGardenItem("stone-4"));
+    document.getElementById("stone-3").addEventListener("click", drawGardenItem("stone-3"));
+    document.getElementById("stone-1").addEventListener("click", drawGardenItem("stone-1"));
+    document.getElementById("stone-pile-1").addEventListener("click", drawGardenItem("stone-pile-1"));
+    document.getElementById("stone-pile-2").addEventListener("click", drawGardenItem("stone-pile-2"));
+    document.getElementById("lantern").addEventListener("click", drawGardenItem("lantern"));
+    document.getElementById("bonzai-1").addEventListener("click", drawGardenItem("bonzai-1"));
+    document.getElementById("bonzai-2").addEventListener("click", drawGardenItem("bonzai-2"));
+
+
+    sandbox.addEventListener("mousedown", (e) => {
+        debugger;
+        function distanceXY(x0, y0, x1, y1) {
+            let dx = x1 - x0,
+                dy = y1 - y0;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+        function circlePointCollision(x, y, item) {
+            debugger;
+            return distanceXY(x, y, item.x, item.y) < item.radius;
+        }
+        
+        gardenItems.map(item => {
+            debugger;
+            if(circlePointCollision(e.offsetX, e.offsetY, item)) {
+                	function onMouseMove(event) {
+                        debugger;
+                        item.x = event.offsetX;// - offset.x;
+                        item.y = event.offsetY;// - offset.y;
+                        drawGardenItem();
+                    }
+
+                    function onMouseUp(event) {
+                        document.removeEventListener("mousemove", onMouseMove);
+                        document.removeEventListener("mouseup", onMouseUp);
+                    }
+                document.addEventListener("mousemove", onMouseMove);
+                document.addEventListener("mouseup", onMouseUp);
+                offset.x = e.offsetX - item.x;
+                offset.y = e.offsetY - item.y;
+            }
+        })
+	});
+
+
+
+
+
 
     document.querySelector("#clear-canvas").addEventListener("click", clearCanvas);
 
@@ -85,84 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+// This will draw a tree:
+// let tree = new Image();
+//     tree.src = "./src/images/garden-items/bonzai-2.png";  
 
-window.onload = function() {
-	let sandbox = document.getElementById("sandbox");
-    let width = sandbox.width = window.innerWidth;
-    let height = sandbox.height = 0.75 * window.innerHeight;
-    let c = sandbox.getContext("2d");
-	let	handle = {
-			x: width / 2,
-			y: height / 2,
-			radius: 20
-		},
-		offset = {};
-
-	drawHandle();
-
-	function drawHandle() {
-		c.clearRect(0, 0, width, height);
-
-		c.fillStyle = "black";
-		c.beginPath();
-		c.arc(handle.x, handle.y, handle.radius, 0, Math.PI * 2, false);
-		c.fill();
-	}
-
-	document.addEventListener("mousedown", (event) => {
-		if(circlePointCollision(event.offsetX, event.offsetY, handle)) {
-			document.addEventListener("mousemove", onMouseMove);
-			document.addEventListener("mouseup", onMouseUp);
-			offset.x = event.offsetX - handle.x;
-			offset.y = event.offsetY - handle.y;
-		}
-	});
-
-	function onMouseMove(event) {
-		handle.x = event.offsetX;// - offset.x;
-		handle.y = event.offsetY;// - offset.y;
-		drawHandle();
-	}
-
-	function onMouseUp(event) {
-		document.removeEventListener("mousemove", onMouseMove);
-		document.removeEventListener("mouseup", onMouseUp);
-	}
-
-
-};
-
-// putting this inside DOMContentLoaded will render a tree
-    // draw();
-
-    // function draw(){
-    //     c.clearRect(0,0, w, h)
-    //     tree.onload = function(){
-    //         c.drawImage(tree, 200, 20);
-    //     }
-    // } 
-
-// mouse listeners/dragging DOES NOT work
-    // function distanceMoved(x, y, item) {
-    //     function distanceXY (x0, y0, x1, y1) {
-    //         let dx = x1 - x0, dy = y1 - y0;
-    //         return Math.sqrt(dx * dx + dy * dy);
-    //     }
-	// 	return distanceXY(x, y, item.x, item.y) < (item.width / 2);
-    // }
-    // document.addEventListener("mousedown", (e)=>{
-    //         if(distanceMoved(e.clientX, e.clientY, tree)) {
-    //             document.addEventListener("mousemove", onMouseMove);
-    //             document.addEventListener("mouseup", onMouseUp);
-    //         }
-    //     }
-    // )
-    // function onMouseMove(e) {
-    //     tree.x = e.clientX;
-    //     tree.y = e.clientY;
-    //     draw();
-    // }
-    // function onMouseUp() {
-    //     document.removeEventListener("mousemove", onMouseMove);
-    //     document.removeEventListener("mouseup", onMouseUp);
-    // }
+//     draw(tree, 200, 20);
