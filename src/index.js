@@ -11,8 +11,6 @@ let c = sandbox.getContext("2d");
     c.imageSmoothingEnabled = false;
 
 
-//5 Lines
-
 document.addEventListener("DOMContentLoaded", () => {
     
     let tree = new Image();
@@ -54,52 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.removeEventListener("mouseup", onMouseUp);
     }
 
-
-    // 5-LINE RAKE DRAW >>> this code works to generate 5 lines
-    // for (let i=0; i < 5; i++) {
-    //     let newY = 5 + (i * 10);
-    //     c.beginPath();
-    //     c.moveTo(0, newY - 1);
-    //     c.lineTo(w, newY - 1);
-    //     c.strokeStyle = 'white';
-    //     c.stroke();
-    // }
-
-    // for (let i=0; i < 5; i++) {
-    //     let newY = 5 + (i * 10);
-    //     c.beginPath();
-    //     c.moveTo(0, newY);
-    //     c.lineTo(w, newY);
-    //     c.strokeStyle = '#261308';
-    //     c.stroke();
-    // }
 })
-
-
-// SINGLE LINE WORKS WELL
-// function Line(y, dX, style) {
-//     let cX = 0;
-//     this.y = y;
-//     this.dX = dX;
-//     this.style = style;
-
-//     this.draw = function() {
-//         c.beginPath();
-//         c.moveTo(0, this.y);
-//         c.lineTo(cX, this.y);
-//         c.strokeStyle = this.style;
-//         c.stroke();
-//     }
-//     this.move = function() {
-//         if (cX === w) {
-//             this.y += 10;
-//             cX = 0;
-//         }
-//         cX += this.dX;
-
-//         this.draw();
-//     }
-// }
 
 function Rake(y, dX, style) {
     let cX = 0;
@@ -129,43 +82,17 @@ function Rake(y, dX, style) {
     }
 }
 
-// let y = 10;
-// let lineW = new Line(y - 1, 2, 'white')
-// let lineB = new Line(y, 2,'#261308')
 let rakeB = new Rake(10, 2,'#261308')
 let rakeW = new Rake(9, 2, 'white')
 
-function animate() {
+function animateRake() {
     requestAnimationFrame(animate)
-
-    // lines work to generate simultaneously, rake does not :(
-    // lineW.move();
-    // lineB.move();
 
     rakeW.move();
     rakeB.move();
     
-
-
-    // this draws 5 lines simultaneously
-    // for (let i = 0; i < 5; i++) {
-    //     let newY = 5 + (i * 10);
-    //     c.beginPath();
-    //     c.moveTo(0, newY - 1);
-    //     c.lineTo(w, newY - 1);
-    //     c.strokeStyle = 'white';
-    //     c.stroke();
-    // }
-    // for (let i=0; i < 5; i++) {
-    //     let newY = 5 + (i * 10);
-    //     c.beginPath();
-    //     c.moveTo(0, newY);
-    //     c.lineTo(w, newY);
-    //     c.strokeStyle = '#261308';
-    //     c.stroke();
-    // }
-
-
+    if (rakeB.y >= w ) {
+        rakeB.dX = 0;
+        rakeW.dX = 0;
+    }
 }
-
-animate();
