@@ -4,6 +4,49 @@ export function cnct() {
 }
 
 
+window.onload = function() {
+ 
+    // get the offset position of the sandbox
+    let offsetX = sandbox.offsetLeft;
+    let offsetY = sandbox.offsetTop;   
+ 
+    // select all class 'sm' from garden-items
+    let images = document.getElementsByClassName('sm');
+
+    // make all .tool's draggable
+    images.draggable({
+        helper:'clone',
+    });
+ 
+    // assign each image an attribute containing its index
+    images.forEach((img, i) => {
+        img.setAttribute("imageIndex", i);
+    });
+ 
+    // make the sandbox a dropzone
+    sandbox.droppable(function drop(e, ui) {
+            // determine the closest point in the grid on X axis
+            let x= parseInt(parseInt((ui.offset.left-offsetX)-1) / 100) * 100;
+ 
+            // determine the closest point in the grid on Y axis
+            let y= parseInt(parseInt(ui.offset.top-offsetY) / 100) * 100;
+ 
+            // determine the width and the height of the image
+            let width=ui.helper[0].width;
+            let height=ui.helper[0].height;
+            
+            // get the drop payload (here the payload is the $tools index)
+            let theIndex=ui.draggable.data("imageIndex");
+ 
+            // get the image having the respective index
+            let image = images[theIndex];
+ 
+            // drawImage at the drop point using the dropped image 
+            // This will make the img a permanent part of the sandbox content
+            c.drawImage(image, x, y, width, height);
+        })
+}
+
 
 
 // VERSION ONE
