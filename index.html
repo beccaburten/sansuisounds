@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="https://kit.fontawesome.com/4afd7e25b4.js" crossorigin="anonymous"></script>
 
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet"> -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://giottojs.org/d3-canvas-transition/0.3.6/d3-canvas-transition.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <title>sansuisounds</title>
 </head>
@@ -51,15 +52,15 @@
 
     <div class="garden-items">
         <div>
-        <img id="stone2" class="sm" src="./src/images/garden-items/stone-2.png" alt="stone-2">
-        <img id="stone4" class="sm" src="./src/images/garden-items/stone-4.png" alt="stone-4">
-        <img id="stone3" class="sm" src="./src/images/garden-items/stone-3.png" alt="stone-3">
-        <img id="stone1" class="sm" src="./src/images/garden-items/stone-1.png" alt="stone-1">
-        <img id="sp1" class="sm" src="./src/images/garden-items/stone-pile-1.png" alt="stone-pile-1">
-        <img id="sp2" class="lrg" src="./src/images/garden-items/stone-pile-2.png" alt="stone-pile-2">
-        <img id="lant" class="sm" src="./src/images/garden-items/lantern.png" alt="lantern">
-        <img id="bz1" class="lrg" class="tree" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1">
-        <img id="bz2" class="lrg" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2">
+        <img id="stone2" class="sm" src="./src/images/garden-items/stone-2.png" alt="stone-2" draggable="true">
+        <img id="stone4" class="sm" src="./src/images/garden-items/stone-4.png" alt="stone-4" draggable="true">
+        <img id="stone3" class="sm" src="./src/images/garden-items/stone-3.png" alt="stone-3" draggable="true">
+        <img id="stone1" class="sm" src="./src/images/garden-items/stone-1.png" alt="stone-1" draggable="true">
+        <img id="sp1" class="sm" src="./src/images/garden-items/stone-pile-1.png" alt="stone-pile-1" draggable="true">
+        <img id="sp2" class="lrg" src="./src/images/garden-items/stone-pile-2.png" alt="stone-pile-2" draggable="true">
+        <img id="lant" class="sm" src="./src/images/garden-items/lantern.png" alt="lantern" draggable="true">
+        <img id="bz1" class="lrg" class="tree" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1" draggable="true">
+        <img id="bz2" class="lrg" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2" draggable="true">
         </div>
 
         <div class="play-controls">
@@ -71,7 +72,7 @@
         </div>
     </div>
 
-    <canvas id="sandbox"></canvas>
+    <canvas id="sandbox">Oh no! Your browser does not support Canvas. We recommend trying on Google Chrome ☺</canvas>
     <script src="./dist/main.js"></script>
 
 

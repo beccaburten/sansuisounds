@@ -2,20 +2,100 @@ import './styles/index.scss';
 import './styles/navbar.scss';
 import './styles/canvas.scss';
 import './styles/garden-items.scss';
-
+import * as DragDropUtil from './scripts/dragdrop.js';
+import { draw } from './scripts/draw.js'
 
 let sandbox = document.getElementById("sandbox");
     let w = sandbox.width = window.innerWidth;
     let h = sandbox.height = 0.75 * window.innerHeight;
+    //attempt to resize canvas on window resize:
+    // sandbox.addEventListener("resize", ()=> {
+    //     w = sandbox.width = window.innerWidth;
+    //     h = sandbox.height = 0.75 * window.innerHeight;
+    // })
 let c = sandbox.getContext("2d");
     c.imageSmoothingEnabled = false;
 
 
+window.onload = function() {
+ 
+    // get the offset position of the sandbox
+    let offsetX = sandbox.offsetLeft;
+    let offsetY = sandbox.offsetTop;   
+ 
+    // select all class 'sm' from garden-items
+    let images = document.getElementsByClassName('sm');
+
+    // make all .tool's draggable
+    images.draggable({
+        helper:'clone',
+    });
+ 
+    // assign each image an attribute containing its index
+    images.forEach((img, i) => {
+        img.setAttribute("imageIndex", i);
+    });
+ 
+    // make the sandbox a dropzone
+    sandbox.droppable(function drop(e, ui) {
+            // determine the closest point in the grid on X axis
+            let x= parseInt(parseInt((ui.offset.left-offsetX)-1) / 100) * 100;
+ 
+            // determine the closest point in the grid on Y axis
+            let y= parseInt(parseInt(ui.offset.top-offsetY) / 100) * 100;
+ 
+            // determine the width and the height of the image
+            let width=ui.helper[0].width;
+            let height=ui.helper[0].height;
+            
+            // get the drop payload (here the payload is the $tools index)
+            let theIndex=ui.draggable.data("imageIndex");
+ 
+            // get the image having the respective index
+            let image = images[theIndex];
+ 
+            // drawImage at the drop point using the dropped image 
+            // This will make the img a permanent part of the sandbox content
+            c.drawImage(image, x, y, width, height);
+        })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     
+    DragDropUtil.cnct(); //console logs "hi" correctly
+
     let tree = new Image();
     tree.src = "./src/images/garden-items/bonzai-2.png";  
-    
+
+    draw(tree, 200, 20);
+
+    // sandbox.addEventListener("mousedown", (e)=> {
+    //     console.log(e)
+    //     debugger;
+    // });
+    // sandbox.addEventListener("mousemove", DragDropUtil.handleMouseMove);
+    // sandbox.addEventListener("mouseup", DragDropUtil.handleMouseUp);
+    // sandbox.addEventListener("mouseout", DragDropUtil.handleMouseOut);
+
+
+
+
+
+
     document.querySelector("#clear-canvas").addEventListener("click", clearCanvas);
 
     function clearCanvas() {
