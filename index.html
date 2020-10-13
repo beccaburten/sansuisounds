@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <script src="https://kit.fontawesome.com/4afd7e25b4.js" crossorigin="anonymous"></script>
+
     <!-- <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -23,6 +25,7 @@
             <div id="about-d" class="dropdown">
                 <p>Welcome to SansuiSounds, where you can create, and listen to, your very own digital zen garden. </p>
                 <p>Based on the ancient Japanese gardening style of Karesansui, place stones and bonzai trees around your sandbox to create your own unique design.</p>
+                <p>Want to set the mood? Press the play button next to Ambiance down below the sandbox.</p>
                 <p>Not sure how? See START for more instructions.</p>
                 <p>Like what you see? Check out more of my work at the links below.</p>
                 <a href="https://github.com/beccaburten/"><img class="links" id="ghb" src="./src/images/github_logo.png"
@@ -33,11 +36,11 @@
             </div>
             <h3 class="start-trigger">START</h3>
             <div id="start-d" class="dropdown">
-                <p>Drag and drop items from the bottom of the screen into the sandbox</p>
+                <p>Drag and drop items from the bottom of the screen into the sandbox.</p>
             
                 <p>Once satisfied with your design...it's time to rake!</p>
 
-                <p>Press play to watch fine lines draw in the 'sand' around your designs.</p>
+                <p>Press the play button next to Rake to watch fine lines draw in the 'sand' around your designs.</p>
 
                 <p>Make sure you have your volume on-- these five-toothed rakes are actually creating musical staves, and your stones have become the notes! As the rake encounters items on its path, you'll hear the soothing chimes of your own design.</p>
                 
@@ -47,6 +50,7 @@
     </div>
 
     <div class="garden-items">
+        <div>
         <img id="stone2" class="sm" src="./src/images/garden-items/stone-2.png" alt="stone-2">
         <img id="stone4" class="sm" src="./src/images/garden-items/stone-4.png" alt="stone-4">
         <img id="stone3" class="sm" src="./src/images/garden-items/stone-3.png" alt="stone-3">
@@ -56,6 +60,15 @@
         <img id="lant" class="sm" src="./src/images/garden-items/lantern.png" alt="lantern">
         <img id="bz1" class="lrg" class="tree" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1">
         <img id="bz2" class="lrg" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2">
+        </div>
+
+        <div class="play-controls">
+            <p><i id="rake-play" class="fas fa-play"></i> Rake</p>
+            
+            <p><i class="fas fa-play"></i> Ambiance</p>
+
+            <p><i id="clear-canvas" class="fas fa-redo-alt"></i>Start New</p>
+        </div>
     </div>
 
     <canvas id="sandbox"></canvas>

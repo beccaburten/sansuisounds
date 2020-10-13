@@ -1,6 +1,8 @@
 .garden-items {
+    width: 100%;
     display: flex;
     margin: 10px;
+    justify-content: space-between;
     align-items: flex-end;
     position: absolute;
     bottom: 0;
@@ -15,4 +17,33 @@
 
 .lrg {
     width: 100px;
+}
+
+.play-controls {
+    height: 70px;
+    width: 200px;
+    align-self: center;
+    background-color: #93A64E;
+    box-shadow: 5px 5px rgba(38, 19, 8, 0.5);
+    font-size: 18px;
+    border: 1px solid #261308;
+    border-radius: 6px;
+    padding: 15px;
+    margin-right: 50px;
+    box-sizing: content-box;
+    & p {
+        margin-bottom: 5px; 
+    }
+
+}
+
+.play-controls i {
+    margin-right: 7px;
+    transition: color 0.2s;
+    &:hover {
+        color: #A6483F;
+        text-shadow: 3px 3px rgba(38, 19, 8, 0.2);
+        transition: color 0.2s;
+        cursor: pointer;
+    }
 }
