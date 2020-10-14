@@ -76,9 +76,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 })
-
-// This will draw a tree:
-// let tree = new Image();
-//     tree.src = "./src/images/garden-items/bonzai-2.png";  
-
-//     draw(tree, 200, 20);

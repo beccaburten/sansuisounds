@@ -16,9 +16,9 @@ export function draw(){
         gardenItems.map(item => {
             c.globalCompositeOperation='destination-over';
             c.drawImage(item.img, item.x, item.y);
-            debugger;
+            // debugger;
         })
-        setDragListeners();
+        // setDragListeners();
     // }
 } 
 
@@ -42,33 +42,30 @@ export function drawGardenItem(e) {
 
 
 
-function setDragListeners() {
+// function setDragListeners() {
     // debugger;
-    let	offset = {};
+let	offset = {};
+
+document.addEventListener("mousedown", (event) => {
     gardenItems.map(item => {
-
-        document.addEventListener("mousedown", (event) => {
-            if(itemPointCollision(event.offsetX, event.offsetY, item)) {
-                document.addEventListener("mousemove", onMouseMove);
-                document.addEventListener("mouseup", onMouseUp);
-                // debugger;
-                offset.x = event.offsetX - item.x;
-                offset.y = event.offsetY - item.y;
-            }
-        });
-
-        function onMouseMove(event) {
+        if(itemPointCollision(event.offsetX, event.offsetY, item)) {
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
             // debugger;
-            item.x = event.offsetX - offset.x;
-            item.y = event.offsetY - offset.y;
-            // debugger;
-            draw();
+            offset.x = event.offsetX - item.x;
+            offset.y = event.offsetY - item.y;
         }
-
-        function onMouseUp(event) {
-            document.removeEventListener("mousemove", onMouseMove);
-            document.removeEventListener("mouseup", onMouseUp);
-        }
+    function onMouseMove(event) {
+        // debugger;
+        item.x = event.offsetX - offset.x;
+        item.y = event.offsetY - offset.y;
+        // debugger;
+        draw();
+    }
+    function onMouseUp(event) {
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+    }
     })
+});
 
-}
