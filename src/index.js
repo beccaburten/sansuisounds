@@ -12,18 +12,17 @@ let c = sandbox.getContext("2d");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.getElementById("stone-2").addEventListener("click", drawGardenItem("stone-2"));
-    document.getElementById("stone-4").addEventListener("click", drawGardenItem("stone-4"));
-    document.getElementById("stone-3").addEventListener("click", drawGardenItem("stone-3"));
-    document.getElementById("stone-1").addEventListener("click", drawGardenItem("stone-1"));
-    document.getElementById("stone-pile-1").addEventListener("click", drawGardenItem("stone-pile-1"));
-    document.getElementById("stone-pile-2").addEventListener("click", drawGardenItem("stone-pile-2"));
-    document.getElementById("lantern").addEventListener("click", drawGardenItem("lantern"));
-    document.getElementById("bonzai-1").addEventListener("click", drawGardenItem("bonzai-1"));
-    document.getElementById("bonzai-2").addEventListener("click", drawGardenItem("bonzai-2"));
+    ///////////////////////////////////////////////////////////
 
-
-
+    document.getElementById("stone-2").addEventListener("click", drawGardenItem);
+    document.getElementById("stone-4").addEventListener("click", drawGardenItem);
+    document.getElementById("stone-3").addEventListener("click", drawGardenItem);
+    document.getElementById("stone-1").addEventListener("click", drawGardenItem);
+    document.getElementById("stone-pile-1").addEventListener("click", drawGardenItem);
+    document.getElementById("stone-pile-2").addEventListener("click", drawGardenItem);
+    document.getElementById("lantern").addEventListener("click", drawGardenItem);
+    document.getElementById("bonzai-1").addEventListener("click", drawGardenItem);
+    document.getElementById("bonzai-2").addEventListener("click", drawGardenItem);
 
     document.querySelector("#clear-canvas").addEventListener("click", clearCanvas);
 
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         this.move = function() {
             if (cX === w ) {
-                debugger;
                 this.y += 50;
                 cX = 0;
             }
@@ -72,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
         rakeB.move();
         
         if (rakeB.y >= w ) {
-            debugger;
             rakeB.dX = 0;
             rakeW.dX = 0;
         }
