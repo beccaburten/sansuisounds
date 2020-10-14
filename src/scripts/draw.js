@@ -16,6 +16,7 @@ export function draw(){
         gardenItems.map(item => {
             c.globalCompositeOperation='destination-over';
             c.drawImage(item.img, item.x, item.y);
+            debugger;
         })
         setDragListeners();
     // }
@@ -58,10 +59,10 @@ function setDragListeners() {
 
         function onMouseMove(event) {
             // debugger;
-            item.x = event.offsetX; //- offset.x;
-            item.y = event.offsetY; //- offset.y;
+            item.x = event.offsetX - offset.x;
+            item.y = event.offsetY - offset.y;
             // debugger;
-            drawGardenItem(event);
+            draw();
         }
 
         function onMouseUp(event) {
