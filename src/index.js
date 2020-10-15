@@ -7,14 +7,14 @@ import {animateRake} from './scripts/rake';
 
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
-let h = sandbox.height = 0.7 * window.innerHeight;
+let h = sandbox.height = 0.75 * window.innerHeight;
 let c = sandbox.getContext("2d");
     c.imageSmoothingEnabled = false;
 
 // not working for Rake functionality
 // window.addEventListener('resize', () => {
 //     w = sandbox.width = window.innerWidth;
-//     h = sandbox.height = 0.7 * window.innerHeight;
+//     h = sandbox.height = 0.75 * window.innerHeight;
 //     c = sandbox.getContext("2d");
 // });
 

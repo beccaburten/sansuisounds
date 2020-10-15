@@ -2,10 +2,10 @@ import {itemPointCollision} from './utils';
 
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
-let h = sandbox.height = 0.7 * window.innerHeight;
+let h = sandbox.height = 0.75 * window.innerHeight;
 let c = sandbox.getContext("2d");
 
-let gardenItems = [];
+export let gardenItems = [];
 
 
 export function draw(){
