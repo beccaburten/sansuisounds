@@ -7,6 +7,8 @@ let c = sandbox.getContext("2d");
 
 export let gardenItems = [];
 
+export let doAnim = true;
+
 export function draw(){
     c.clearRect(0,0, window.innerWidth, window.innerHeight * 0.75)
 
@@ -14,7 +16,7 @@ export function draw(){
         c.globalCompositeOperation='destination-over';
         c.drawImage(item.img, item.x, item.y);
     })
-    console.log(gardenItems);
+    // console.log(gardenItems);
 
 } 
 
@@ -73,4 +75,5 @@ document.addEventListener("mousedown", (event) => {
 export function clearCanvas() {
     c.clearRect(0, 0, w, h);
     gardenItems = [];
+    doAnim = false;
 }

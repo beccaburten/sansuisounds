@@ -11,4 +11,6 @@ export function distanceXY(x0, y0, x1, y1) {
 		return Math.sqrt(dx * dx + dy * dy);
 }
 
-// export function 
+export function btwn(x, min, max) {
+  return x >= min && x <= max;
+}
