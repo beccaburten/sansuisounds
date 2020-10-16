@@ -1,5 +1,7 @@
 import {itemPointCollision} from './utils';
+import {doAnim} from '../index';
 import {gardenItems} from './draw';
+import {Ripple} from './ripple';
 
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
@@ -19,13 +21,15 @@ function Rake(y, dX, style) {
         this.style = style;
 
         this.pullRake = function() {
-            for (let i = 0; i < 5; i++) {
-                let topY = this.y + (i * 10);
-                c.beginPath();
-                c.moveTo(0, topY);
-                c.lineTo(x, topY);
-                c.strokeStyle = this.style;
-                c.stroke();
+            if (doAnim) {
+                for (let i = 0; i < 5; i++) {
+                    let topY = this.y + (i * 10);
+                    c.beginPath();
+                    c.moveTo(0, topY);
+                    c.lineTo(x, topY);
+                    c.strokeStyle = this.style;
+                    c.stroke();
+                }
             }
 
         }
@@ -38,19 +42,33 @@ function Rake(y, dX, style) {
                 this.dX = 0;
             }   
 
-            gardenItems.map(item => {
-                let itemWidth = item.width;
-                if((x >= (item.x - 50)) && (x <= (item.x + itemWidth + 50))) {
-                    debugger;
-                    this.style = 'red';
-                } else {
-                    this.style = style;
-                }
-            })
+            // gardenItems.map(item => {
+            //     let itemWidth = item.width;
+            //     let halfW = itemWidth * 0.5
+            //     // if((x >= (item.x - 50)) && (x <= (item.x + itemWidth + 50))) {
+            //     //     let rippleB = new Ripple(x, this.y, itemWidth, 2, '#261308')
+            //     //     let rippleW = new Ripple(x - 1, this.y - 1, itemWidth, 2, 'white')
+            //     //     animateRipple(rippleB, rippleW);
 
-            x += this.dX;
+            //     let hitItem = x >= (item.x - halfW)
+            //     let onItem = x <= (item.x + itemWidth + 50)
+            //      if(hitItem && onItem)  {
+            //         this.dX = 0;
+            //         let rippleB = new Ripple(x, this.y + halfW, itemWidth, '#261308')
+            //         let rippleW = new Ripple(x - 1, this.y + halfW, itemWidth, 'white')
+            //         rippleB.drawRipple();
+            //         rippleW.drawRipple();
+            //         debugger;
+            //         x += itemWidth; 
+            //     } else {
+            //         x += this.dX;
+            //         this.pullRake();
+            //     }
+            // })
 
+             x += this.dX;
             this.pullRake();
+
         }
 }
 
