@@ -32,7 +32,9 @@ export function drawGardenItem(e) {
                 img: img,
                 x: random(w),
                 y: random(h),
-                width: parseInt(e.target.style.width)
+                width: img.width,
+                height: img.height
+                // width: parseInt(e.target.style.width),
             };
             gardenItems.push(newItem);
             draw();

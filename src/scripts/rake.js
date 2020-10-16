@@ -70,6 +70,24 @@ function Rake(y, dX, style) {
             this.pullRake();
 
         }
+        this.ripple = function() {
+            gardenItems.map(item => {
+                let rW = item.width * 0.5;
+                let rH = item.height * 0.5;
+                let rX = item.x + rW;
+                let rY = item.y + rH;
+                let rad;
+                if (rW > rH) {
+                    rad = rW;
+                } else {
+                    rad = rH;
+                }
+                let rippleB = new Ripple(rX, rY, rad, '#261308');
+                let rippleW = new Ripple(rX - 1, rY, rad, 'white');
+                rippleB.drawRipple();
+                rippleW.drawRipple();
+            })
+        }
 }
 
 let rakeB = new Rake(10, 2,'#261308')
@@ -77,7 +95,9 @@ let rakeW = new Rake(9, 2, 'white')
 
 export function animateRake() {
         requestAnimationFrame(animateRake)
-        rakeW.move();
-        rakeB.move();
+        // rakeW.move();
+        // rakeB.move();
+        rakeB.ripple();
+        rakeW.ripple();
 }
 

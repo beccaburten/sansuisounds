@@ -32,4 +32,6 @@ export function Ripple(x, y, radius, style) {
 // let rippleW = new Ripple(99, 99, 29, 2, 'white')
 
 
-// animateRipple(rippleB, rippleW)
+// animateRipple() {
+
+// }
