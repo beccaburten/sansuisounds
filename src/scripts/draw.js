@@ -16,7 +16,6 @@ export function draw(){
         c.globalCompositeOperation='destination-over';
         c.drawImage(item.img, item.x, item.y);
     })
-    // console.log(gardenItems);
 
 } 
 
@@ -24,20 +23,17 @@ export function drawGardenItem(e) {
         function random(max) {
             return 100 + (Math.random() * (max - 200));
         }
-        // return (e) => {
-            let img = new Image();
-            img.src = `${e.target.src}`; 
-            let newItem = {
-                img: img,
-                x: random(w),
-                y: random(h),
-                width: img.width,
-                height: img.height
-                // width: parseInt(e.target.style.width),
-            };
-            gardenItems.push(newItem);
-            draw();
-        // }
+        let img = new Image();
+        img.src = `${e.target.src}`; 
+        let newItem = {
+            img: img,
+            x: random(w),
+            y: random(h),
+            width: img.width,
+            height: img.height
+        };
+        gardenItems.push(newItem);
+        draw();
 }
 
 
