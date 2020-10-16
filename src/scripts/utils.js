@@ -10,6 +10,5 @@ export function distanceXY(x0, y0, x1, y1) {
 }
 
 export function btwn(x, min, max) {
-	debugger;
-  return x >= min && x <= max;
+  return x > min && x < max;
 }

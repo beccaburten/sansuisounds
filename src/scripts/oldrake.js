@@ -14,26 +14,25 @@ window.addEventListener('resize', () => {
     c = sandbox.getContext("2d");
 });
 
-export function Rake(x, y, dX, style) {
+function Rake(x, y, dX, style) {
 
         this.x = x;
-        let nextX = x;
         this.y = y;
         this.dX = dX;
         this.style = style;
         this.continueAnim = true;
 
         this.pullRake = function() {
-            // if (doAnim) {
+            if (doAnim) {
                 for (let i = 0; i < 5; i++) {
                     let y2 = this.y + (i * 10);
                     c.beginPath();
-                    c.moveTo(this.x, y2); // don't start 0?
-                    c.lineTo(nextX, y2);
+                    c.moveTo(0, y2); // don't start 0?
+                    c.lineTo(this.x, y2);
                     c.strokeStyle = this.style;
                     c.stroke();
                 }
-            // }
+            }
         }
 
 
@@ -42,27 +41,26 @@ export function Rake(x, y, dX, style) {
         // x will be 0 to start and then the items.x + width + 50 after the items ripple
         this.move = function() {
             if (this.continueAnim) {
-                if (nextX >= w ) {
+                if (this.x >= w ) {
                     this.y += 50;
                     this.x = 0;
-                    nextX = 0;
                 }
                 if (this.y >= h ) {
                     this.dX = 0;
                     this.continueAnim = false;
                 }   
-                gardenItems.map(item => {
-                    let postItemX = item.x + item.width;
-                    let nextY = item.y + item.height;
-                    if (btwn(nextX, item.x - 50, postItemX) && btwn(this.y, item.y, nextY)) {
-                        console.log(this.x) 
-                        this.continueAnim = false;
-                        this.dX = 0;
-                        // debugger;
-                        this.ripple(item);
-                    }
-                });
-                nextX += this.dX;
+                // gardenItems.map(item => {
+                //     let nextX = item.x + item.width;
+                //     let nextY = item.y + item.height;
+                //     if (btwn(this.x, item.x, nextX) && btwn(this.y, item.y, nextY)) {
+                //         console.log("reached item") 
+                //         this.continueAnim = false;
+                //         this.dX = 0;
+                //         debugger;
+                //         this.ripple(item);
+                //     }
+                // });
+                this.x += this.dX;
                 this.pullRake();
             }  
 
@@ -87,22 +85,24 @@ export function Rake(x, y, dX, style) {
             let rippleW = new Ripple(rX - 1, rY, rad, 'white');
             rippleB.drawRipple();
             rippleW.drawRipple();
+            // continueAnim = true;
             
-            // let rakeB2 = new Rake(rX + 50, this.y, 2,'#261308')
-            let newRake = new Rake(rX + 50, this.y, 2, this.style);
             debugger;
-            animateRake(newRake, null)();
+            let rakeB2 = new Rake(rX + 50, rY, 2,'#261308')
+            // let rakeW2 = new Rake(rX + 50, rY - 1, 2, 'white')
+            // rakeW2.move();
+            rakeB2.move();
         }
 }
 
-export function animateRake(rake1, rake2) {
+let rakeB = new Rake(0, 10, 2,'#261308');
+let rakeW = new Rake(0, 9, 2, 'white');
+
+export function animateRake() {
         // doAnim = true;
-        return () => {
-            requestAnimationFrame(animateRake(rake1, rake2))
-            rake1.move();
-            rake2.move();
-        }
+        requestAnimationFrame(animateRake)
+        rakeW.move();
+        rakeB.move();
 }
-
 
  
