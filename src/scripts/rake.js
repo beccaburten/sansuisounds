@@ -1,6 +1,4 @@
-import {itemPointCollision} from './utils';
-import {doAnim} from '../index';
-import {gardenItems} from './draw';
+import { gardenItems } from './draw';
 import {Ripple} from './ripple';
 
 let sandbox = document.getElementById("sandbox");
@@ -21,17 +19,14 @@ function Rake(y, dX, style) {
         this.style = style;
 
         this.pullRake = function() {
-            if (doAnim) {
-                for (let i = 0; i < 5; i++) {
-                    let topY = this.y + (i * 10);
-                    c.beginPath();
-                    c.moveTo(0, topY);
-                    c.lineTo(x, topY);
-                    c.strokeStyle = this.style;
-                    c.stroke();
-                }
+            for (let i = 0; i < 5; i++) {
+                let topY = this.y + (i * 10);
+                c.beginPath();
+                c.moveTo(0, topY);
+                c.lineTo(x, topY);
+                c.strokeStyle = this.style;
+                c.stroke();
             }
-
         }
         this.move = function() {
             if (x >= w ) {

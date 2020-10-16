@@ -7,18 +7,15 @@ let c = sandbox.getContext("2d");
 
 export let gardenItems = [];
 
-
 export function draw(){
     c.clearRect(0,0, window.innerWidth, window.innerHeight * 0.75)
 
-    // img.onload = function() {
-        gardenItems.map(item => {
-            c.globalCompositeOperation='destination-over';
-            c.drawImage(item.img, item.x, item.y);
-            // debugger;
-        })
-        // setDragListeners();
-    // }
+    gardenItems.map(item => {
+        c.globalCompositeOperation='destination-over';
+        c.drawImage(item.img, item.x, item.y);
+    })
+    console.log(gardenItems);
+
 } 
 
 export function drawGardenItem(e) {
@@ -49,17 +46,20 @@ let	offset = {};
 document.addEventListener("mousedown", (event) => {
     gardenItems.map(item => {
         if(itemPointCollision(event.offsetX, event.offsetY, item)) {
-            document.addEventListener("mousemove", onMouseMove);
-            document.addEventListener("mouseup", onMouseUp);
-            // debugger;
-            offset.x = event.offsetX - item.x;
-            offset.y = event.offsetY - item.y;
+            if(event.shiftKey) {
+                gardenItems = gardenItems.filter(i => i !== item);
+                draw();
+            } else {
+                document.addEventListener("mousemove", onMouseMove);
+                document.addEventListener("mouseup", onMouseUp);
+                offset.x = event.offsetX - item.x;
+                offset.y = event.offsetY - item.y;
+
+            }
         }
     function onMouseMove(event) {
-        // debugger;
         item.x = event.offsetX - offset.x;
         item.y = event.offsetY - offset.y;
-        // debugger;
         draw();
     }
     function onMouseUp(event) {
@@ -69,3 +69,8 @@ document.addEventListener("mousedown", (event) => {
     })
 });
 
+
+export function clearCanvas() {
+    c.clearRect(0, 0, w, h);
+    gardenItems = [];
+}
