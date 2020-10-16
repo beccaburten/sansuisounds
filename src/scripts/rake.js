@@ -57,9 +57,9 @@ export function Rake(x, y, dX, style) {
                     let postItemX = item.x + item.width;
                     let nextY = item.y + item.height;
                     if (btwn(nextX, item.x - 50, postItemX) && btwn(this.y, item.y - item.height, nextY + 25)) {
-                        console.log(this.x) 
-                        this.continueAnim = false;
-                        this.dX = 0;
+                        // console.log(this.x) 
+                        // this.continueAnim = false;
+                        // this.dX = 0;
                         // debugger;
                         this.ripple(item);
                     }
@@ -80,19 +80,19 @@ export function Rake(x, y, dX, style) {
             let rY = item.y + rH;
             let rad;
             if (rW > rH) {
-                rad = rW; 
+                rad = rW + 40; 
             } else {
-                rad = rH;
+                rad = rH + 40;
             }
             
-            let rippleB = new Ripple(rX, rY, rad, '#261308');
-            let rippleW = new Ripple(rX - 1, rY, rad, 'white');
+            let rippleB = new Ripple(rX, rY, rad);
+            // let rippleW = new Ripple(rX - 1, rY, rad + 40, 'white');
             rippleB.drawRipple();
-            rippleW.drawRipple();
+            // rippleW.drawRipple();
             
-            let newRake = new Rake(rX + item.width, this.y, 2, this.style);
-            debugger;
-            animateRake(newRake, null)();
+            // let newRake = new Rake(rX + item.width, this.y, 2, this.style);
+            // debugger;
+            // animateRake(newRake, null)();
         }
 }
 
