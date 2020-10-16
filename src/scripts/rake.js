@@ -3,6 +3,8 @@ import { Ripple } from './ripple';
 import { btwn } from './utils';
 import { doAnim } from './draw';
 
+/// try cropping actual images into circles 
+
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
 let h = sandbox.height = 0.75 * window.innerHeight;
@@ -54,7 +56,7 @@ export function Rake(x, y, dX, style) {
                 gardenItems.map(item => {
                     let postItemX = item.x + item.width;
                     let nextY = item.y + item.height;
-                    if (btwn(nextX, item.x - 50, postItemX) && btwn(this.y, item.y, nextY)) {
+                    if (btwn(nextX, item.x - 50, postItemX) && btwn(this.y, item.y - item.height, nextY + 25)) {
                         console.log(this.x) 
                         this.continueAnim = false;
                         this.dX = 0;
@@ -88,8 +90,7 @@ export function Rake(x, y, dX, style) {
             rippleB.drawRipple();
             rippleW.drawRipple();
             
-            // let rakeB2 = new Rake(rX + 50, this.y, 2,'#261308')
-            let newRake = new Rake(rX + 50, this.y, 2, this.style);
+            let newRake = new Rake(rX + item.width, this.y, 2, this.style);
             debugger;
             animateRake(newRake, null)();
         }

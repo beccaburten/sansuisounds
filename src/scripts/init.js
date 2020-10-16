@@ -9,5 +9,5 @@ export function init() {
     document.getElementById("stone-pile-2").addEventListener("click", drawGardenItem);
     document.getElementById("lantern").addEventListener("click", drawGardenItem);
     document.getElementById("bonzai-1").addEventListener("click", drawGardenItem);
-    document.getElementById("bonzai-2").addEventListener("click", drawGardenItem);
+    // document.getElementById("bonzai-2").addEventListener("click", drawGardenItem);
 }
