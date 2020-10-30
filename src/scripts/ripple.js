@@ -1,6 +1,6 @@
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
-let h = sandbox.height = 0.75 * window.innerHeight;
+let h = sandbox.height = 0.65 * window.innerHeight;
 let c = sandbox.getContext("2d");
 
 export function Ripple(x, y, radius) {
@@ -16,7 +16,7 @@ export function Ripple(x, y, radius) {
                 let nextRad = this.radius - (rad * 10);
                 c.beginPath(); 
                 c.arc(this.x, this.y, nextRad, 0, Math.PI * 2, false);
-                c.strokeStyle = '#91897c';
+                c.strokeStyle = '#80796e';
                 c.stroke();
                 c.closePath();
                 debugger;
@@ -24,7 +24,7 @@ export function Ripple(x, y, radius) {
                 let nextRad2 = this.radius - (rad * 10) - 1;
                 c.beginPath(); 
                 c.arc(this.x, this.y, nextRad2, 0, Math.PI * 2, false);
-                c.strokeStyle = 'white';
+                c.strokeStyle = '#d1c5b0';
                 c.stroke();
                 c.closePath();
             } 
@@ -33,14 +33,14 @@ export function Ripple(x, y, radius) {
                 c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
                 c.fillStyle = "#A69D8D";
                 c.fill();
-                c.strokeStyle = '#91897c';
+                c.strokeStyle = '#80796e';
                 c.stroke();
                 c.closePath();
                 debugger;
             //WHITE OUTERMOST, no fill
                 c.beginPath(); 
                 c.arc(this.x, this.y, this.radius - 1, 0, Math.PI * 2, false);
-                c.strokeStyle = 'white';
+                c.strokeStyle = '#d1c5b0';
                 c.stroke();
                 c.closePath();
                 debugger;

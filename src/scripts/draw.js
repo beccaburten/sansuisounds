@@ -2,7 +2,7 @@ import {itemPointCollision} from './utils';
 
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
-let h = sandbox.height = 0.75 * window.innerHeight;
+let h = sandbox.height = 0.65 * window.innerHeight;
 let c = sandbox.getContext("2d");
 
 export let gardenItems = [];
@@ -52,7 +52,6 @@ document.addEventListener("mousedown", (event) => {
                 document.addEventListener("mouseup", onMouseUp);
                 offset.x = event.offsetX - item.x;
                 offset.y = event.offsetY - item.y;
-
             }
         }
     function onMouseMove(event) {
