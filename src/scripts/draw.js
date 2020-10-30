@@ -52,7 +52,6 @@ document.addEventListener("mousedown", (event) => {
                 document.addEventListener("mouseup", onMouseUp);
                 offset.x = event.offsetX - item.x;
                 offset.y = event.offsetY - item.y;
-
             }
         }
     function onMouseMove(event) {
