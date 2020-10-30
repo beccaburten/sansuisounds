@@ -7,12 +7,12 @@ import { doAnim } from './draw';
 
 let sandbox = document.getElementById("sandbox");
 let w = sandbox.width = window.innerWidth;
-let h = sandbox.height = 0.75 * window.innerHeight;
+let h = sandbox.height = 0.65 * window.innerHeight;
 let c = sandbox.getContext("2d");
 
 window.addEventListener('resize', () => {
     w = sandbox.width = window.innerWidth;
-    h = sandbox.height = 0.75 * window.innerHeight;
+    h = sandbox.height = 0.65 * window.innerHeight;
     c = sandbox.getContext("2d");
 });
 
