@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
 
     document.querySelector("#clear-canvas").addEventListener("click", clearCanvas);
-    let rakeB = new Rake(0, 10, 2,'#261308');
+    let rakeB = new Rake(0, 10, 2,'#91897c');
+    // let rakeB = new Rake(0, 10, 2,'#261308');
     let rakeW = new Rake(0, 9, 2, 'white');
     document.querySelector("#rake-play").addEventListener("click", animateRake(rakeB, rakeW));
     

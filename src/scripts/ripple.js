@@ -16,7 +16,7 @@ export function Ripple(x, y, radius) {
                 let nextRad = this.radius - (rad * 10);
                 c.beginPath(); 
                 c.arc(this.x, this.y, nextRad, 0, Math.PI * 2, false);
-                c.strokeStyle = '#261308';
+                c.strokeStyle = '#91897c';
                 c.stroke();
                 c.closePath();
                 debugger;
@@ -33,7 +33,7 @@ export function Ripple(x, y, radius) {
                 c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
                 c.fillStyle = "#A69D8D";
                 c.fill();
-                c.strokeStyle = '#261308';
+                c.strokeStyle = '#91897c';
                 c.stroke();
                 c.closePath();
                 debugger;
