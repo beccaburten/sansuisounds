@@ -1,6 +1,6 @@
 # sansuisounds
 
-Welcome to **SansuiSounds**, where you can create, and listen to, your very own digital zen garden.   
+Welcome to [SansuiSounds](https://beccaburten.github.io/sansuisounds/), where you can create, and listen to, your very own digital zen garden.   
 
 ## Background & Overview  
 
