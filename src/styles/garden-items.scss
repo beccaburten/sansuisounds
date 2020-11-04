@@ -17,6 +17,9 @@
 }
 
 .play-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 70px;
     width: 200px;
     align-self: center;

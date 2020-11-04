@@ -11,8 +11,9 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://giottojs.org/d3-canvas-transition/0.3.6/d3-canvas-transition.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="icon" type="image/png" href="./src/images/garden-items/bonzai-2.png">
 
     <meta property="og:title" content="SansuiSounds" />
@@ -22,7 +23,7 @@
     <meta property="og:url" content="http://www.beccaburten.com/sansuisounds/" />
 
 
-    <title>sansuisounds</title>
+    <title>SansuiSounds</title>
 </head>
 
 <body>
@@ -34,31 +35,36 @@
         <div class="r-header">
             <h3 class="about-trigger">ABOUT</h3>
             <div id="about-d" class="dropdown">
-                <p>Welcome to SansuiSounds, where you can create, and listen to, your very own digital zen garden.</p>
-                <p>Based on the ancient Japanese gardening style of Karesansui, place stones and bonzai trees around your sandbox to create your own unique design.</p>
+                <p>Welcome to SansuiSounds, where you can create your very own digital zen garden.</p>
+                <p>Based on the ancient Japanese gardening style of Karesansui, place stones and bonzai trees around
+                    your sandbox to create your own unique design.</p>
                 <p>Not sure how? See START for more instructions.</p>
-                <p>Want to set the mood? Press the play button next to Ambiance down below the sandbox.</p>
+                <!-- <p>Want to set the mood? Press the play button next to Ambiance down below the sandbox.</p> -->
                 <p>Like what you see? Check out more of my work at the links below.</p>
-                <a href="https://github.com/beccaburten/"><img class="links" id="ghb" src="./src/images/github_logo.png"
-                        alt="github-personal-link"></a>
-                <a href="https://www.linkedin.com/in/beccaburten/"><img class="links" id="lnk" src="./src/images/linkedin_logo.png"
-                        alt="linkedin-personal-link"></a>
+                <a href="http://beccaburten.com/" target="_blank"><img class="links" id="ghb"
+                        src="./src/images/b_logo.png" alt="github-personal-link"></a>
+                <a href="https://github.com/beccaburten/" target="_blank"><img class="links" id="ghb"
+                        src="./src/images/github_logo.png" alt="github-personal-link"></a>
+                <a href="https://www.linkedin.com/in/beccaburten/" target="_blank"><img class="links" id="lnk"
+                        src="./src/images/linkedin_logo.png" alt="linkedin-personal-link"></a>
                 <p>A project by Becca Burten.</p>
             </div>
             <h3 class="start-trigger">START</h3>
             <div id="start-d" class="dropdown">
                 <p>Click an item to place it in your garden, selecting as many of each as you like.</p>
 
-                <p>In the sandbox, you can move items by dragging and dropping them into place. Shift+Click if you want to remove one instead.</p>
-            
+                <p>In the sandbox, move items by dragging and dropping them into place.</p>
+
+                <p>Shift+Click to remove an item instead.</p>
+
                 <p>Once satisfied with your design, it's time to rake!</p>
 
-                <p>Press the play button next to Rake to watch fine lines draw in the 'sand' around your designs.</p>
+                <p>Press the play button to watch fine lines draw in the 'sand' around your designs.</p>
 
-                <p>Make sure you have your volume on...these five-toothed rakes are creating musical staves, and your stones have become the notes! As the rake encounters items on its path, you'll hear the soothing chimes of your own design.</p>
-                
-                <p>Play it again, or clear the sand and start your new sansuisound-- no two are the same!</p>
-        </div>
+                <!-- <p>Make sure you have your volume on...these five-toothed rakes are creating musical staves, and your stones have become the notes! As the rake encounters items on its path, you'll hear the soothing chimes of your own design.</p> -->
+
+                <p>Play it again, or clear the sand and start your new garden. No two are the same!</p>
+            </div>
         </div>
     </div>
 
@@ -66,23 +72,20 @@
         <div class="item-container">
             <p id="click-here">Click on any of these items to place them in the sand</p>
             <div>
-            <img id="stone-2" class="item" src="./src/images/garden-items/stone-2.png" alt="stone-2">
-            <img id="stone-4" class="item" src="./src/images/garden-items/stone-4.png" alt="stone-4">
-            <img id="stone-3" class="item" src="./src/images/garden-items/stone-3.png" alt="stone-3">
-            <img id="stone-1" class="item" src="./src/images/garden-items/stone-1.png" alt="stone-1">
-            <img id="stone-pile-1" class="item" src="./src/images/garden-items/stone-pile-1.png" alt="stone-pile-1">
-            <img id="stone-pile-2" class="item" src="./src/images/garden-items/stone-pile-2.png" alt="stone-pile-2">
-            <img id="lantern" class="item" src="./src/images/garden-items/lantern.png" alt="lantern">
-            <img id="bonzai-1" class="item" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1">
-            <!-- <img id="bonzai-2" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2"> -->
+                <img id="stone-2" class="item" src="./src/images/garden-items/stone-2.png" alt="stone-2">
+                <img id="stone-4" class="item" src="./src/images/garden-items/stone-4.png" alt="stone-4">
+                <img id="stone-3" class="item" src="./src/images/garden-items/stone-3.png" alt="stone-3">
+                <img id="stone-1" class="item" src="./src/images/garden-items/stone-1.png" alt="stone-1">
+                <img id="stone-pile-1" class="item" src="./src/images/garden-items/stone-pile-1.png" alt="stone-pile-1">
+                <img id="stone-pile-2" class="item" src="./src/images/garden-items/stone-pile-2.png" alt="stone-pile-2">
+                <img id="lantern" class="item" src="./src/images/garden-items/lantern.png" alt="lantern">
+                <img id="bonzai-1" class="item" src="./src/images/garden-items/bonzai-1.png" alt="bonzai-1">
+                <!-- <img id="bonzai-2" class="tree" src="./src/images/garden-items/bonzai-2.png" alt="bonzai-2"> -->
             </div>
         </div>
 
         <div class="play-controls">
             <p><i id="rake-play" class="fas fa-play"></i> Rake</p>
-            
-            <p><i class="fas fa-play"></i> Ambiance</p>
-
             <p><i id="clear-canvas" class="fas fa-redo-alt"></i>Start New</p>
         </div>
     </div>

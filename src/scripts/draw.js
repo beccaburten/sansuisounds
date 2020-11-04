@@ -42,29 +42,56 @@ export function drawGardenItem(e) {
 let	offset = {};
 
 document.addEventListener("mousedown", (event) => {
-    gardenItems.map(item => {
-        if(itemPointCollision(event.offsetX, event.offsetY, item)) {
-            if(event.shiftKey) {
-                gardenItems = gardenItems.filter(i => i !== item);
-                draw();
-            } else {
-                document.addEventListener("mousemove", onMouseMove);
-                document.addEventListener("mouseup", onMouseUp);
-                offset.x = event.offsetX - item.x;
-                offset.y = event.offsetY - item.y;
+    let collision = false;
 
+    while (!collision) {
+        gardenItems.map(item => {
+            if(itemPointCollision(event.offsetX, event.offsetY, item)) {
+                collision = true;
+                if(event.shiftKey) {
+                    gardenItems = gardenItems.filter(i => i !== item);
+                    draw();
+                } else {
+                    document.addEventListener("mousemove", onMouseMove);
+                    document.addEventListener("mouseup", onMouseUp);
+                    offset.x = event.offsetX - item.x;
+                    offset.y = event.offsetY - item.y;
+                }
             }
-        }
-    function onMouseMove(event) {
-        item.x = event.offsetX - offset.x;
-        item.y = event.offsetY - offset.y;
-        draw();
+            function onMouseMove(event) {
+                item.x = event.offsetX - offset.x;
+                item.y = event.offsetY - offset.y;
+                draw();
+            }
+            function onMouseUp(event) {
+                document.removeEventListener("mousemove", onMouseMove);
+                document.removeEventListener("mouseup", onMouseUp);
+            }
+        })
     }
-    function onMouseUp(event) {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-    }
-    })
+
+    // gardenItems.map(item => {
+    //     if(itemPointCollision(event.offsetX, event.offsetY, item)) {
+    //         if(event.shiftKey) {
+    //             gardenItems = gardenItems.filter(i => i !== item);
+    //             draw();
+    //         } else {
+    //             document.addEventListener("mousemove", onMouseMove);
+    //             document.addEventListener("mouseup", onMouseUp);
+    //             offset.x = event.offsetX - item.x;
+    //             offset.y = event.offsetY - item.y;
+    //         }
+    //     }
+    //     function onMouseMove(event) {
+    //         item.x = event.offsetX - offset.x;
+    //         item.y = event.offsetY - offset.y;
+    //         draw();
+    //     }
+    //     function onMouseUp(event) {
+    //         document.removeEventListener("mousemove", onMouseMove);
+    //         document.removeEventListener("mouseup", onMouseUp);
+    //     }
+    // })
 });
 
 
