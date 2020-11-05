@@ -42,9 +42,9 @@ export function drawGardenItem(e) {
 let	offset = {};
 
 document.addEventListener("mousedown", (event) => {
-    let collision = false;
+    // let collision = false;
 
-    while (!collision) {
+    // while (!collision) {
         gardenItems.map(item => {
             if(itemPointCollision(event.offsetX, event.offsetY, item)) {
                 collision = true;
@@ -68,7 +68,7 @@ document.addEventListener("mousedown", (event) => {
                 document.removeEventListener("mouseup", onMouseUp);
             }
         })
-    }
+    //}
 
     // gardenItems.map(item => {
     //     if(itemPointCollision(event.offsetX, event.offsetY, item)) {
